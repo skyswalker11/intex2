@@ -12,6 +12,7 @@ using intexnew.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using intexnew.Models;
 
 namespace intexnew
 {
@@ -34,6 +35,11 @@ namespace intexnew
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<ICrashRepository, EFCrashRepository>();
+
+            services.AddDbContext<CrashesDbContext>(options =>
+                options.UseSqlite(Configuration["ConnectionStrings:CrashesDbConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,6 +11,14 @@ namespace intexnew.Controllers
 {
     public class HomeController : Controller
     {
+        private ICrashRepository repo;
+
+
+        public HomeController(ICrashRepository temp)
+        {
+            repo = temp;
+        }
+
         public HomeController()
         {
             
@@ -25,5 +33,6 @@ namespace intexnew.Controllers
         {
             return View();
         }
+
     }
 }
