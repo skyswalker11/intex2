@@ -39,8 +39,17 @@ namespace intexnew
             //{
             //    options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             //});
-            services.AddDbContext<AppIdentityDBContext>(options =>
-             options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]));
+
+            //why is the DbContext AppIdentity?, Bethany is commenting this out and changing it to the line below
+            //services.AddDbContext<AppIdentityDBContext>(options =>
+             //options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]));
+
+            services.AddDbContext<CrashesDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
+            });
+             
+
             //Identity is for security/permissions
             services.AddDbContext<AppIdentityDBContext>(options =>
                options.UseMySql(Configuration["ConnectionStrings:IdentityConnection"]));

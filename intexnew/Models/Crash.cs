@@ -20,9 +20,9 @@ namespace intexnew.Models
 
         public int MONTH { get; set; }
 
-        public float LAT_UTM_Y { get; set; }
+        public string LAT_UTM_Y { get; set; }
 
-        public float LONG_UTM_X { get; set; }
+        public string LONG_UTM_X { get; set; }
 
         public int ROUTE { get; set; }
 
@@ -30,7 +30,7 @@ namespace intexnew.Models
 
         public string MAIN_ROAD_NAME { get; set; }
         public string CITY { get; set; }
-        public string COUNTY { get; set; }
+        public string COUNTY_NAME { get; set; }
 
         public int CRASH_SEVERITY_ID { get; set; }
         public int WORK_ZONE_RELATED { get; set; }
