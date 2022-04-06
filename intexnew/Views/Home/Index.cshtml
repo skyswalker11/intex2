@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@model CrashesViewModel
+@* Used for testing:
+    <h1>@Model.PageInfo.TotalPages</h1>
+*@
+
+@foreach (Crash c in Model.Crashes)
+{
+    <partial name="ProjectSummary" model="c" />
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div page-num="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
 </div>
+
+@*<h3>@r.Title</h3>
+
+    <ul>
+        <li>@r.Author</li>
+        <li>@r.Price</li>
+        <li>@r.Category</li>
+        <li>@r.NumPage</li>
+        <li>@r.Publisher</li>
+        <li>@r.ISBN</li>
+    </ul>*@
+
+<br />

@@ -1,35 +1,42 @@
 ﻿using System;
+using System.Linq;
+
 namespace intexnew.Models
 {
     public class EFCrashRepository : ICrashRepository
     {
-        private CrashesDbContext context { get; set; }
+        private CrashesDbContext Context { get; set; }
 
         public EFCrashRepository(CrashesDbContext temp)
         {
-            context = temp;
+            Context = temp;
         }
 
-        public IQueryable<Crash> Crashes => context.Crashes;
+        public IQueryable<Crash> Crashes => Context.Crashes;
 
 
-        //adding functionality from IBookRepository
-        public void SaveBook(Crash c)
+        //adding functionality from ICrashRepository
+        public void SaveCrash(Crash c)
         {
-            context.SaveChanges();
+            Context.SaveChanges();
         }
 
-        public void CreateBook(Crash c)
+        public void CreateCrash(Crash c)
         {
-            context.Add(c);
-            context.SaveChanges();
+            Context.Add(c);
+            Context.SaveChanges();
         }
 
-        public void DeleteBook(Crash c)
+        public void DeleteCrash(Crash c)
         {
-            context.Remove(c);
-            context.SaveChanges();
+            Context.Remove(c);
+            Context.SaveChanges();
         }
-
+        
+        public void UpdateCrash(Crash c)
+        {
+            Context.Update(c);
+            Context.SaveChanges();
+        }
     }
 }
