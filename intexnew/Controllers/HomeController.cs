@@ -14,7 +14,6 @@ namespace intexnew.Controllers
     {
         private ICrashRepository repo { get; set; }
 
-
         public HomeController(ICrashRepository temp)
         {
             repo = temp;
